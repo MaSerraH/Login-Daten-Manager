@@ -16,5 +16,28 @@ namespace Login_Daten_Manager
         {
             InitializeComponent();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult Exit;
+            try
+            {
+                Exit = MessageBox.Show("möchten Sie wirklich schließen?", "Login Daten Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (Exit == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Login Daten Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            }
+        }
+        public bool neuerUser = false;
+        private void btnNeuerUser_Click(object sender, EventArgs e)
+        {
+            this.neuerUser = true;
+            this.Close();
+        }
     }
 }

@@ -18,7 +18,17 @@ namespace Login_Daten_Manager
             Application.SetCompatibleTextRenderingDefault(false);
             while (true)
             {
-                Application.Run(new Form1());
+                Form1 form1 = new Form1();  
+                form1.ShowDialog();
+
+                if (form1.neuerUser)
+                {
+                    Form2 form2 = new Form2();
+                    form2.ShowDialog();
+
+                }
+
+
                 break;
             }
             
