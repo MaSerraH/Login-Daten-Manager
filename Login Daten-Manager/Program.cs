@@ -23,8 +23,13 @@ namespace Login_Daten_Manager
 
                 if (form1.neuerUser)
                 {
-                    Form2 form2 = new Form2();
+                    neuerUserForm form2 = new neuerUserForm();
                     form2.ShowDialog();
+
+                    if (form2.zumLogin)
+                    {
+                        continue;
+                    }
 
                 }
 

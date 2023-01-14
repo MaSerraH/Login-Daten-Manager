@@ -37,7 +37,7 @@ namespace Login_Daten_Manager
         private void btnNeuerUser_Click(object sender, EventArgs e)
         {
             this.neuerUser = true;
-            this.Close();
+            this.Hide();
         }
     }
 }
