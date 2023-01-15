@@ -16,7 +16,6 @@ namespace Login_Daten_Manager
         {
             InitializeComponent();
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             DialogResult Exit;
