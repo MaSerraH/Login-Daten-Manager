@@ -36,12 +36,14 @@
             this.tb1 = new System.Windows.Forms.TextBox();
             this.tb2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(517, 465);
+            this.btnExit.Location = new System.Drawing.Point(362, 381);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(155, 46);
             this.btnExit.TabIndex = 0;
@@ -52,7 +54,7 @@
             // btnZumMain
             // 
             this.btnZumMain.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZumMain.Location = new System.Drawing.Point(113, 456);
+            this.btnZumMain.Location = new System.Drawing.Point(67, 381);
             this.btnZumMain.Name = "btnZumMain";
             this.btnZumMain.Size = new System.Drawing.Size(142, 46);
             this.btnZumMain.TabIndex = 1;
@@ -63,7 +65,7 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(307, 381);
+            this.btnLogin.Location = new System.Drawing.Point(147, 174);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(182, 46);
             this.btnLogin.TabIndex = 2;
@@ -74,7 +76,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(134, 137);
+            this.label1.Location = new System.Drawing.Point(115, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 45);
             this.label1.TabIndex = 3;
@@ -83,7 +85,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(107, 234);
+            this.label2.Location = new System.Drawing.Point(88, 217);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 45);
             this.label2.TabIndex = 4;
@@ -92,18 +94,18 @@
             // tb1
             // 
             this.tb1.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb1.Location = new System.Drawing.Point(264, 137);
+            this.tb1.Location = new System.Drawing.Point(147, 36);
             this.tb1.Name = "tb1";
-            this.tb1.Size = new System.Drawing.Size(225, 34);
+            this.tb1.Size = new System.Drawing.Size(257, 34);
             this.tb1.TabIndex = 5;
             // 
             // tb2
             // 
             this.tb2.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb2.Location = new System.Drawing.Point(264, 234);
+            this.tb2.Location = new System.Drawing.Point(147, 116);
             this.tb2.Name = "tb2";
             this.tb2.PasswordChar = '?';
-            this.tb2.Size = new System.Drawing.Size(225, 34);
+            this.tb2.Size = new System.Drawing.Size(257, 34);
             this.tb2.TabIndex = 6;
             // 
             // label3
@@ -115,24 +117,34 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Login ";
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btnLogin);
+            this.panel1.Controls.Add(this.tb1);
+            this.panel1.Controls.Add(this.tb2);
+            this.panel1.Location = new System.Drawing.Point(67, 99);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(450, 246);
+            this.panel1.TabIndex = 8;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 553);
+            this.ClientSize = new System.Drawing.Size(557, 479);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.tb2);
-            this.Controls.Add(this.tb1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnZumMain);
             this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.panel1);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -146,5 +158,6 @@
         private System.Windows.Forms.TextBox tb1;
         private System.Windows.Forms.TextBox tb2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel1;
     }
 }

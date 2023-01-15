@@ -22,8 +22,6 @@ namespace Login_Daten_Manager
             String connectionString = ConfigurationManager.ConnectionStrings["Login_Daten_Manager.Properties.Settings.C__DBConnectionString"].ConnectionString;
             sqlConnection = new SqlConnection(connectionString);
         }
-
-       
         private void btnExit_Click(object sender, EventArgs e)
         {
             DialogResult Exit;
@@ -46,7 +44,6 @@ namespace Login_Daten_Manager
         {
             this.zummMain = true;
             this.Close();
-
         }
         
         public User user = null;
@@ -64,8 +61,6 @@ namespace Login_Daten_Manager
             try
             {
                 sqlConnection.Open();
-                //String @pass = "declare @pass nvarchar(50) set @pass = CONVERT(NVARCHAR(32), HashBytes('MD5', '" + passwort + "'), 2)";
-                //SqlCommand sqlcmd = new SqlCommand(@pass, sqlConnection);
                 String query = "declare @pass nvarchar(50) set @pass = CONVERT(NVARCHAR(32), HashBytes('MD5', '" + passwort + "'), 2) select * from LDM_login where Name = '" + name + "' and Passwort = @pass";
                 SqlCommand sqlcmd = new SqlCommand(query, sqlConnection);
 
