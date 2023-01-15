@@ -60,7 +60,7 @@
             this.btnZumLogin.Name = "btnZumLogin";
             this.btnZumLogin.Size = new System.Drawing.Size(182, 44);
             this.btnZumLogin.TabIndex = 1;
-            this.btnZumLogin.Text = "zum Login";
+            this.btnZumLogin.Text = "zum main";
             this.btnZumLogin.UseVisualStyleBackColor = true;
             this.btnZumLogin.Click += new System.EventHandler(this.btnZumLogin_Click);
             // 

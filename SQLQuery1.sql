@@ -1,0 +1,1 @@
+﻿truncate table LDM_login;

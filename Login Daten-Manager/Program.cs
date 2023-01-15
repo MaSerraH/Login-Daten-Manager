@@ -23,6 +23,7 @@ namespace Login_Daten_Manager
 
                 if (form1.neuerUser)
                 {
+                    
                     neuerUserForm form2 = new neuerUserForm();
                     form2.ShowDialog();
 
@@ -33,6 +34,25 @@ namespace Login_Daten_Manager
 
                 }
 
+                if (form1.zumLogin)
+                {
+                    LoginForm loginForm= new LoginForm();
+                    loginForm.ShowDialog();
+                    User user = loginForm.user;
+                    if (user != null)
+                    {
+                        KontoForm kontoForm = new KontoForm();
+                        kontoForm.ShowDialog();
+                        
+
+                    }
+
+                    if (loginForm.zummMain)
+                    {
+                        continue;
+
+                    }
+                }
 
                 break;
             }
