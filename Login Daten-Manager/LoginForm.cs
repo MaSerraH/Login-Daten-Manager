@@ -69,12 +69,12 @@ namespace Login_Daten_Manager
                 {
                     user.Equals(reader.GetString(1));
                     user.Equals(reader.GetString(3));
-                    MessageBox.Show("ein neuer User " + name + " hat sich eingeloggt!", "Login erfogt!", MessageBoxButtons.OK);
+                    MessageBox.Show("der User " + name + " hat sich eingeloggt!", "Login erfogt!", MessageBoxButtons.OK);
 
                 }
                 else
                 {
-                    MessageBox.Show("der User mit dem Name: " + name + ", existiert nicht!", "Login Fehler", MessageBoxButtons.OK);
+                    MessageBox.Show("der User mit dem Name: " + name + ", existiert nicht!", "Login Fehler", MessageBoxButtons.OK,MessageBoxIcon.Stop);
                     Application.Exit();
                 }
              
