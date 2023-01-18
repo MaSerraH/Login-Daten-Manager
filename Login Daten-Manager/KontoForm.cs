@@ -75,6 +75,7 @@ namespace Login_Daten_Manager
             this.tb1.Text = "";
             this.tb2.Text = string.Empty;
             this.tb3.Text = string.Empty;
+            this.tb4.Text = string.Empty;
             this.label4.Text = string.Empty;
         }
 
@@ -143,7 +144,6 @@ namespace Login_Daten_Manager
                 sqlConnection.Close();
             }
         }
-
         private void btnNeuStart_Click(object sender, EventArgs e)
         {
             try
@@ -162,7 +162,55 @@ namespace Login_Daten_Manager
                 MessageBox.Show("das Konto wurde neugestarted!", "Login Daten-Manager", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 sqlConnection.Close(); 
             }
+        }
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            String nameInt = tb1.Text;
+            String loginName = tb2.Text;
+            String loginPass = tb3.Text;
+            String id = label4.Text;
+            try
+            {
+                sqlConnection.Open();
+                String query = "update LDM_daten set Name = '" + nameInt + "', Loginname = '" + loginName + "', Loginpasswort = '" + loginPass + "' where Id = '" + id + "'";
+                SqlCommand sqlcmd = new SqlCommand(query, sqlConnection);
+                sqlcmd.ExecuteNonQuery();
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Login Daten-Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            }
+            finally
+            {
+                MessageBox.Show("das Konto wurde aktualisiert!", "Login Daten-Manager", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                sqlConnection.Close();
+                reset();
+                dataView();
+            }
+        }
+        private void btnSuchen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sqlConnection.Open();
+    
+                SqlDataAdapter sda = new SqlDataAdapter("select * from LDM_daten", sqlConnection);
+
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                DataView dv = dt.DefaultView;
+                dv.RowFilter = String.Format("Name LIKE '%{0}%'", tb4.Text);
+                dataGridView1.DataSource = dv.ToTable();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Login Daten-Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
         }
     }
 }

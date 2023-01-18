@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.btnExit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loginnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loginpasswortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lDMdatenBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._C__DBDataSet = new Login_Daten_Manager._C__DBDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -44,11 +48,9 @@
             this.btnSpeichern = new System.Windows.Forms.Button();
             this.btnLöschen = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loginnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loginpasswortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNeuStart = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnSuchen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lDMdatenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._C__DBDataSet)).BeginInit();
@@ -86,6 +88,34 @@
             this.dataGridView1.Size = new System.Drawing.Size(672, 252);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // loginnameDataGridViewTextBoxColumn
+            // 
+            this.loginnameDataGridViewTextBoxColumn.DataPropertyName = "Loginname";
+            this.loginnameDataGridViewTextBoxColumn.HeaderText = "Loginname";
+            this.loginnameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.loginnameDataGridViewTextBoxColumn.Name = "loginnameDataGridViewTextBoxColumn";
+            // 
+            // loginpasswortDataGridViewTextBoxColumn
+            // 
+            this.loginpasswortDataGridViewTextBoxColumn.DataPropertyName = "Loginpasswort";
+            this.loginpasswortDataGridViewTextBoxColumn.HeaderText = "Loginpasswort";
+            this.loginpasswortDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.loginpasswortDataGridViewTextBoxColumn.Name = "loginpasswortDataGridViewTextBoxColumn";
             // 
             // lDMdatenBindingSource
             // 
@@ -160,21 +190,23 @@
             // 
             // btnSpeichern
             // 
-            this.btnSpeichern.Location = new System.Drawing.Point(151, 300);
+            this.btnSpeichern.Font = new System.Drawing.Font("Gill Sans MT", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpeichern.Location = new System.Drawing.Point(80, 300);
             this.btnSpeichern.Name = "btnSpeichern";
-            this.btnSpeichern.Size = new System.Drawing.Size(135, 42);
+            this.btnSpeichern.Size = new System.Drawing.Size(155, 42);
             this.btnSpeichern.TabIndex = 10;
-            this.btnSpeichern.Text = "speichern";
+            this.btnSpeichern.Text = "Eintrag speichern";
             this.btnSpeichern.UseVisualStyleBackColor = true;
             this.btnSpeichern.Click += new System.EventHandler(this.btnSpeichern_Click);
             // 
             // btnLöschen
             // 
-            this.btnLöschen.Location = new System.Drawing.Point(349, 300);
+            this.btnLöschen.Font = new System.Drawing.Font("Gill Sans MT", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLöschen.Location = new System.Drawing.Point(252, 300);
             this.btnLöschen.Name = "btnLöschen";
             this.btnLöschen.Size = new System.Drawing.Size(150, 42);
             this.btnLöschen.TabIndex = 11;
-            this.btnLöschen.Text = "löschen";
+            this.btnLöschen.Text = "Eintrag löschen";
             this.btnLöschen.UseVisualStyleBackColor = true;
             this.btnLöschen.Click += new System.EventHandler(this.btnLöschen_Click);
             // 
@@ -187,49 +219,47 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "...";
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // loginnameDataGridViewTextBoxColumn
-            // 
-            this.loginnameDataGridViewTextBoxColumn.DataPropertyName = "Loginname";
-            this.loginnameDataGridViewTextBoxColumn.HeaderText = "Loginname";
-            this.loginnameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.loginnameDataGridViewTextBoxColumn.Name = "loginnameDataGridViewTextBoxColumn";
-            // 
-            // loginpasswortDataGridViewTextBoxColumn
-            // 
-            this.loginpasswortDataGridViewTextBoxColumn.DataPropertyName = "Loginpasswort";
-            this.loginpasswortDataGridViewTextBoxColumn.HeaderText = "Loginpasswort";
-            this.loginpasswortDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.loginpasswortDataGridViewTextBoxColumn.Name = "loginpasswortDataGridViewTextBoxColumn";
-            // 
             // btnNeuStart
             // 
-            this.btnNeuStart.Location = new System.Drawing.Point(589, 300);
+            this.btnNeuStart.Font = new System.Drawing.Font("Gill Sans MT", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNeuStart.Location = new System.Drawing.Point(611, 300);
             this.btnNeuStart.Name = "btnNeuStart";
             this.btnNeuStart.Size = new System.Drawing.Size(143, 42);
             this.btnNeuStart.TabIndex = 13;
-            this.btnNeuStart.Text = "neu Start";
+            this.btnNeuStart.Text = "Konto neustart";
             this.btnNeuStart.UseVisualStyleBackColor = true;
             this.btnNeuStart.Click += new System.EventHandler(this.btnNeuStart_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Font = new System.Drawing.Font("Gill Sans MT", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(433, 300);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(129, 42);
+            this.btnUpdate.TabIndex = 14;
+            this.btnUpdate.Text = "Konto update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnSuchen
+            // 
+            this.btnSuchen.Font = new System.Drawing.Font("Gill Sans MT", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuchen.Location = new System.Drawing.Point(740, 139);
+            this.btnSuchen.Name = "btnSuchen";
+            this.btnSuchen.Size = new System.Drawing.Size(163, 45);
+            this.btnSuchen.TabIndex = 15;
+            this.btnSuchen.Text = "Eintrag suchen";
+            this.btnSuchen.UseVisualStyleBackColor = true;
+            this.btnSuchen.Click += new System.EventHandler(this.btnSuchen_Click);
             // 
             // KontoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 33F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(942, 797);
+            this.Controls.Add(this.btnSuchen);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnNeuStart);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnLöschen);
@@ -279,5 +309,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn loginnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn loginpasswortDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnNeuStart;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnSuchen;
     }
 }

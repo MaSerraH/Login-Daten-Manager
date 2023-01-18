@@ -78,7 +78,7 @@
             this.label1.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(115, 137);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 45);
+            this.label1.Size = new System.Drawing.Size(79, 34);
             this.label1.TabIndex = 3;
             this.label1.Text = "Name:";
             // 
@@ -87,7 +87,7 @@
             this.label2.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(88, 217);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 45);
+            this.label2.Size = new System.Drawing.Size(106, 34);
             this.label2.TabIndex = 4;
             this.label2.Text = "Passwort:";
             // 
@@ -119,6 +119,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.tb1);
@@ -132,6 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(557, 479);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
