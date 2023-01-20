@@ -51,13 +51,13 @@
             this.btnExport = new System.Windows.Forms.Button();
             this.tb5 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loginnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loginpasswortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kommentare = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lDMdatenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._C__DBDataSet)).BeginInit();
@@ -259,43 +259,6 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "Kommentare:";
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Width = 62;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // loginnameDataGridViewTextBoxColumn
-            // 
-            this.loginnameDataGridViewTextBoxColumn.DataPropertyName = "Loginname";
-            this.loginnameDataGridViewTextBoxColumn.HeaderText = "Loginname";
-            this.loginnameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.loginnameDataGridViewTextBoxColumn.Name = "loginnameDataGridViewTextBoxColumn";
-            // 
-            // loginpasswortDataGridViewTextBoxColumn
-            // 
-            this.loginpasswortDataGridViewTextBoxColumn.DataPropertyName = "Loginpasswort";
-            this.loginpasswortDataGridViewTextBoxColumn.HeaderText = "Loginpasswort";
-            this.loginpasswortDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.loginpasswortDataGridViewTextBoxColumn.Name = "loginpasswortDataGridViewTextBoxColumn";
-            // 
-            // Kommentare
-            // 
-            this.Kommentare.DataPropertyName = "Kommentare";
-            this.Kommentare.HeaderText = "Kommentare";
-            this.Kommentare.MinimumWidth = 6;
-            this.Kommentare.Name = "Kommentare";
-            // 
             // btnReset
             // 
             this.btnReset.Font = new System.Drawing.Font("Gill Sans MT", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -316,6 +279,49 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Width = 62;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 101;
+            // 
+            // loginnameDataGridViewTextBoxColumn
+            // 
+            this.loginnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.loginnameDataGridViewTextBoxColumn.DataPropertyName = "Loginname";
+            this.loginnameDataGridViewTextBoxColumn.HeaderText = "Loginname";
+            this.loginnameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.loginnameDataGridViewTextBoxColumn.Name = "loginnameDataGridViewTextBoxColumn";
+            this.loginnameDataGridViewTextBoxColumn.Width = 146;
+            // 
+            // loginpasswortDataGridViewTextBoxColumn
+            // 
+            this.loginpasswortDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.loginpasswortDataGridViewTextBoxColumn.DataPropertyName = "Loginpasswort";
+            this.loginpasswortDataGridViewTextBoxColumn.HeaderText = "Loginpasswort";
+            this.loginpasswortDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.loginpasswortDataGridViewTextBoxColumn.Name = "loginpasswortDataGridViewTextBoxColumn";
+            this.loginpasswortDataGridViewTextBoxColumn.Width = 182;
+            // 
+            // Kommentare
+            // 
+            this.Kommentare.DataPropertyName = "Kommentare";
+            this.Kommentare.HeaderText = "Kommentare";
+            this.Kommentare.MinimumWidth = 6;
+            this.Kommentare.Name = "Kommentare";
             // 
             // KontoForm
             // 
@@ -381,12 +387,12 @@
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.TextBox tb5;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn loginnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn loginpasswortDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Kommentare;
-        private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
