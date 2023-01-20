@@ -39,6 +39,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSpeichern = new System.Windows.Forms.Button();
+            this.btnUserLoeschen = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,19 +144,31 @@
             // btnSpeichern
             // 
             this.btnSpeichern.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSpeichern.Location = new System.Drawing.Point(242, 315);
+            this.btnSpeichern.Location = new System.Drawing.Point(81, 315);
             this.btnSpeichern.Name = "btnSpeichern";
-            this.btnSpeichern.Size = new System.Drawing.Size(200, 43);
+            this.btnSpeichern.Size = new System.Drawing.Size(202, 43);
             this.btnSpeichern.TabIndex = 10;
             this.btnSpeichern.Text = "User speichern";
             this.btnSpeichern.UseVisualStyleBackColor = true;
             this.btnSpeichern.Click += new System.EventHandler(this.btnSpeichern_Click);
+            // 
+            // btnUserLoeschen
+            // 
+            this.btnUserLoeschen.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserLoeschen.Location = new System.Drawing.Point(345, 315);
+            this.btnUserLoeschen.Name = "btnUserLoeschen";
+            this.btnUserLoeschen.Size = new System.Drawing.Size(220, 43);
+            this.btnUserLoeschen.TabIndex = 11;
+            this.btnUserLoeschen.Text = "User löschen";
+            this.btnUserLoeschen.UseVisualStyleBackColor = true;
+            this.btnUserLoeschen.Click += new System.EventHandler(this.btnUserLoeschen_Click);
             // 
             // neuerUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(652, 450);
+            this.Controls.Add(this.btnUserLoeschen);
             this.Controls.Add(this.btnSpeichern);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnZumLogin);
@@ -183,5 +196,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSpeichern;
+        private System.Windows.Forms.Button btnUserLoeschen;
     }
 }

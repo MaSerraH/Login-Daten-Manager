@@ -85,5 +85,26 @@ namespace Login_Daten_Manager
             }
 
         }
+
+        private void btnUserLoeschen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sqlConnection.Open();
+                String query = "truncate table LDM_login";
+                SqlCommand sqlcmd = new SqlCommand(query, sqlConnection);
+                sqlcmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex )
+            {
+                MessageBox.Show(ex.Message, "Login Daten Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            finally
+            {
+                MessageBox.Show("der User wurde gelöscht!", "Lodin Daten-Manager", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                sqlConnection.Close(); 
+            }
+        }
     }
 }
