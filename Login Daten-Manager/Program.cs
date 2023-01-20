@@ -44,7 +44,6 @@ namespace Login_Daten_Manager
                         KontoForm kontoForm = new KontoForm();
                         kontoForm.ShowDialog();
                     }
-                   
                 }
                 break;
             } 

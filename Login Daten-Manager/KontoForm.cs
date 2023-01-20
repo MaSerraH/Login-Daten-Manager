@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Login_Daten_Manager
 {
@@ -44,6 +45,7 @@ namespace Login_Daten_Manager
             String nameInt = tb1.Text;
             String loginName = tb2.Text;
             String loginPass = tb3.Text;
+            String komm = tb5.Text;
 
             if (nameInt.Length == 0 || loginName.Length == 0 || loginPass.Length == 0)
             {
@@ -53,7 +55,7 @@ namespace Login_Daten_Manager
             try
             {
                 sqlConnection.Open();
-                String query = "insert  into LDM_daten (Name, Loginname, Loginpasswort) values('" + nameInt + "', '" + loginName + "', '" + loginPass + "')";
+                String query = "insert  into LDM_daten (Name, Loginname, Loginpasswort, Kommentare) values('" + nameInt + "', '" + loginName + "', '" + loginPass + "', '" + komm +  "')";
                 SqlCommand sqlcmd = new SqlCommand(query, sqlConnection);
                 sqlcmd.ExecuteNonQuery();
 
@@ -76,6 +78,7 @@ namespace Login_Daten_Manager
             this.tb2.Text = string.Empty;
             this.tb3.Text = string.Empty;
             this.tb4.Text = string.Empty;
+            this.tb5.Text = string.Empty;
             this.label4.Text = string.Empty;
         }
 
@@ -87,6 +90,7 @@ namespace Login_Daten_Manager
                 tb1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 tb2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                 tb3.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                tb5.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
 
             }
             catch (Exception ex)
@@ -160,7 +164,8 @@ namespace Login_Daten_Manager
             finally
             {
                 MessageBox.Show("das Konto wurde neugestarted!", "Login Daten-Manager", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                sqlConnection.Close(); 
+                sqlConnection.Close();
+                dataView();
             }
         }
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -168,11 +173,12 @@ namespace Login_Daten_Manager
             String nameInt = tb1.Text;
             String loginName = tb2.Text;
             String loginPass = tb3.Text;
+            String komm = tb5.Text;
             String id = label4.Text;
             try
             {
                 sqlConnection.Open();
-                String query = "update LDM_daten set Name = '" + nameInt + "', Loginname = '" + loginName + "', Loginpasswort = '" + loginPass + "' where Id = '" + id + "'";
+                String query = "update LDM_daten set Name = '" + nameInt + "', Loginname = '" + loginName + "', Loginpasswort = '" + loginPass + "', Kommentare = '" + komm + "' where Id = '" + id + "'";
                 SqlCommand sqlcmd = new SqlCommand(query, sqlConnection);
                 sqlcmd.ExecuteNonQuery();
 
@@ -211,6 +217,42 @@ namespace Login_Daten_Manager
             {
                 sqlConnection.Close();
             }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sqlConnection.Open();
+
+                String query = "select * from LDM_daten";
+                StreamWriter myfile = new StreamWriter(@"C:\Users\Mauricio\Desktop\LDM_daten\daten.csv");
+
+                SqlCommand sqlcmd = new SqlCommand(query, sqlConnection);
+                SqlDataReader reader = sqlcmd.ExecuteReader();
+                myfile.WriteLine(reader.GetName(0) + ";" + reader.GetName(1) + ";" + reader.GetName(2) + ";" + reader.GetName(3) + ";" + reader.GetName(4));
+                while (reader.Read())
+                {
+                    myfile.WriteLine(reader[0].ToString()+ ";" + reader[1].ToString() + ";" + reader[2].ToString() + ";" + reader[3].ToString() + ";" + reader[4].ToString());
+                }
+                reader.Close();
+                myfile.Close();
+                MessageBox.Show("exportiert!", "Login Daten-Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Login Daten-Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            }
+            finally 
+            { 
+                sqlConnection.Close();
+                dataView();
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            reset();
         }
     }
 }

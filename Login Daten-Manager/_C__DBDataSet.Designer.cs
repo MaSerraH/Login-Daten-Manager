@@ -322,6 +322,8 @@ namespace Login_Daten_Manager {
             
             private global::System.Data.DataColumn columnLoginpasswort;
             
+            private global::System.Data.DataColumn columnKommentare;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public LDM_datenDataTable() {
@@ -389,6 +391,14 @@ namespace Login_Daten_Manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KommentareColumn {
+                get {
+                    return this.columnKommentare;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -424,13 +434,14 @@ namespace Login_Daten_Manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public LDM_datenRow AddLDM_datenRow(int Id, string Name, string Loginname, string Loginpasswort) {
+            public LDM_datenRow AddLDM_datenRow(int Id, string Name, string Loginname, string Loginpasswort, string Kommentare) {
                 LDM_datenRow rowLDM_datenRow = ((LDM_datenRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         Name,
                         Loginname,
-                        Loginpasswort};
+                        Loginpasswort,
+                        Kommentare};
                 rowLDM_datenRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowLDM_datenRow);
                 return rowLDM_datenRow;
@@ -464,6 +475,7 @@ namespace Login_Daten_Manager {
                 this.columnName = base.Columns["Name"];
                 this.columnLoginname = base.Columns["Loginname"];
                 this.columnLoginpasswort = base.Columns["Loginpasswort"];
+                this.columnKommentare = base.Columns["Kommentare"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -477,6 +489,8 @@ namespace Login_Daten_Manager {
                 base.Columns.Add(this.columnLoginname);
                 this.columnLoginpasswort = new global::System.Data.DataColumn("Loginpasswort", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLoginpasswort);
+                this.columnKommentare = new global::System.Data.DataColumn("Kommentare", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKommentare);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AllowDBNull = false;
@@ -487,6 +501,8 @@ namespace Login_Daten_Manager {
                 this.columnLoginname.MaxLength = 50;
                 this.columnLoginpasswort.AllowDBNull = false;
                 this.columnLoginpasswort.MaxLength = 50;
+                this.columnKommentare.AllowDBNull = false;
+                this.columnKommentare.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -980,6 +996,17 @@ namespace Login_Daten_Manager {
                     this[this.tableLDM_daten.LoginpasswortColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Kommentare {
+                get {
+                    return ((string)(this[this.tableLDM_daten.KommentareColumn]));
+                }
+                set {
+                    this[this.tableLDM_daten.KommentareColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -1238,12 +1265,13 @@ namespace Login_Daten_Manager._C__DBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Loginname", "Loginname");
             tableMapping.ColumnMappings.Add("Loginpasswort", "Loginpasswort");
+            tableMapping.ColumnMappings.Add("Kommentare", "Kommentare");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[LDM_daten] WHERE (([Id] = @Original_Id) AND ([Name] = @Origina" +
-                "l_Name) AND ([Loginname] = @Original_Loginname) AND ([Loginpasswort] = @Original" +
-                "_Loginpasswort))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [LDM_daten] WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name" +
+                ") AND ([Loginname] = @Original_Loginname) AND ([Loginpasswort] = @Original_Login" +
+                "passwort))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1251,27 +1279,28 @@ namespace Login_Daten_Manager._C__DBDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Loginpasswort", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Loginpasswort", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[LDM_daten] ([Id], [Name], [Loginname], [Loginpasswort]) VALUES" +
-                " (@Id, @Name, @Loginname, @Loginpasswort);\r\nSELECT Id, Name, Loginname, Loginpas" +
-                "swort FROM LDM_daten WHERE (Id = @Id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [LDM_daten] ([Name], [Loginname], [Loginpasswort], [Kommentare]) VALU" +
+                "ES (@Name, @Loginname, @Loginpasswort, @Kommentare);\r\nSELECT Id, Name, Loginname" +
+                ", Loginpasswort, Kommentare FROM LDM_daten WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Loginname", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Loginname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Loginpasswort", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Loginpasswort", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kommentare", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kommentare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[LDM_daten] SET [Id] = @Id, [Name] = @Name, [Loginname] = @Loginname, [Loginpasswort] = @Loginpasswort WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Loginname] = @Original_Loginname) AND ([Loginpasswort] = @Original_Loginpasswort));
-SELECT Id, Name, Loginname, Loginpasswort FROM LDM_daten WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [LDM_daten] SET [Name] = @Name, [Loginname] = @Loginname, [Loginpasswort] = @Loginpasswort, [Kommentare] = @Kommentare WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Loginname] = @Original_Loginname) AND ([Loginpasswort] = @Original_Loginpasswort));
+SELECT Id, Name, Loginname, Loginpasswort, Kommentare FROM LDM_daten WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Loginname", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Loginname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Loginpasswort", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Loginpasswort", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kommentare", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kommentare", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Loginname", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Loginname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Loginpasswort", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Loginpasswort", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1287,7 +1316,7 @@ SELECT Id, Name, Loginname, Loginpasswort FROM LDM_daten WHERE (Id = @Id)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Name, Loginname, Loginpasswort FROM dbo.LDM_daten";
+            this._commandCollection[0].CommandText = "SELECT Id, Name, Loginname, Loginpasswort, Kommentare FROM LDM_daten";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1388,25 +1417,30 @@ SELECT Id, Name, Loginname, Loginpasswort FROM LDM_daten WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Id, string Name, string Loginname, string Loginpasswort) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Id));
+        public virtual int Insert(string Name, string Loginname, string Loginpasswort, string Kommentare) {
             if ((Name == null)) {
                 throw new global::System.ArgumentNullException("Name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Name));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
             }
             if ((Loginname == null)) {
                 throw new global::System.ArgumentNullException("Loginname");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Loginname));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Loginname));
             }
             if ((Loginpasswort == null)) {
                 throw new global::System.ArgumentNullException("Loginpasswort");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Loginpasswort));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Loginpasswort));
+            }
+            if ((Kommentare == null)) {
+                throw new global::System.ArgumentNullException("Kommentare");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Kommentare));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1428,25 +1462,30 @@ SELECT Id, Name, Loginname, Loginpasswort FROM LDM_daten WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Id, string Name, string Loginname, string Loginpasswort, int Original_Id, string Original_Name, string Original_Loginname, string Original_Loginpasswort) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Id));
+        public virtual int Update(string Name, string Loginname, string Loginpasswort, string Kommentare, int Original_Id, string Original_Name, string Original_Loginname, string Original_Loginpasswort, int Id) {
             if ((Name == null)) {
                 throw new global::System.ArgumentNullException("Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Name));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name));
             }
             if ((Loginname == null)) {
                 throw new global::System.ArgumentNullException("Loginname");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Loginname));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Loginname));
             }
             if ((Loginpasswort == null)) {
                 throw new global::System.ArgumentNullException("Loginpasswort");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Loginpasswort));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Loginpasswort));
+            }
+            if ((Kommentare == null)) {
+                throw new global::System.ArgumentNullException("Kommentare");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Kommentare));
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Id));
             if ((Original_Name == null)) {
@@ -1467,6 +1506,7 @@ SELECT Id, Name, Loginname, Loginpasswort FROM LDM_daten WHERE (Id = @Id)";
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Loginpasswort));
             }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1487,8 +1527,8 @@ SELECT Id, Name, Loginname, Loginpasswort FROM LDM_daten WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Loginname, string Loginpasswort, int Original_Id, string Original_Name, string Original_Loginname, string Original_Loginpasswort) {
-            return this.Update(Original_Id, Name, Loginname, Loginpasswort, Original_Id, Original_Name, Original_Loginname, Original_Loginpasswort);
+        public virtual int Update(string Name, string Loginname, string Loginpasswort, string Kommentare, int Original_Id, string Original_Name, string Original_Loginname, string Original_Loginpasswort) {
+            return this.Update(Name, Loginname, Loginpasswort, Kommentare, Original_Id, Original_Name, Original_Loginname, Original_Loginpasswort, Original_Id);
         }
     }
     

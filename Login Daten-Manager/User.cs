@@ -12,5 +12,6 @@ namespace Login_Daten_Manager
         public String Name { get; set; }
         public String Email { get; set; }
         public String Passwort { get; set; }
+        public String Kommentare { get; set; }
     }
 }
